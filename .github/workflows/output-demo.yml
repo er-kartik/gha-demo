@@ -7,6 +7,12 @@ jobs:
       - name: Get Current Date
         id: date-step
         run: echo "today=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
-
-      - name: Use the Date
-        run: echo "Deployment date is ${{ steps.date-step.outputs.today }}"
+    outputs:
+      my-output: ${{ steps.date-step.outputs.today }}
+      
+  job-two:
+    needs: job-one
+    runs-on: ubuntu-latest
+    steps:      
+      - name: Use the Date from job-one
+        run: echo "Deployment date is ${{ needs.job-one.outputs.my-output }}"
