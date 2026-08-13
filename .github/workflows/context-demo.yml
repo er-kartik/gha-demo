@@ -6,7 +6,7 @@ jobs:
     steps:
       - name: Print the Github Info
         run: | 
-          echo "Repository: ${{ github.reposiroty }}"
+          echo "Repository: ${{ github.repository }}"
           echo "Brach: ${{ github.ref_name }}"
           echo "Triggered by: ${{ github.actor }}"
           echo "Event Type: ${{ github.event_name }}"
