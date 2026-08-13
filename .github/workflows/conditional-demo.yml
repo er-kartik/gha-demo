@@ -1,0 +1,28 @@
+name: Conditional Demo
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: Choose Environment
+        required: true
+        default: dev
+        type: choice
+        options:
+          - dev
+          - prod
+jobs:
+  demo-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to Dev
+        if: inputs.environment == 'dev'
+        run: echo "Deploying to DEV Environment"
+
+      - name: Deploy to PROD
+        if: inputs.environment == 'prod'
+        run: echo "Deploying to PROD"
+
+      - name: This Alays Runs
+        if: always()
+        run: echo "This Step always tun no matter what happen above"
+        
