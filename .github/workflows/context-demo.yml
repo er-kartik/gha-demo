@@ -1,12 +1,11 @@
 name: Context Demo
 on: push
-
 jobs: 
   show-info:
     runs-on: ubuntu-latest
     steps:
       - name: Print the Github Info
-        run | 
+        run: | 
           echo "Repository: ${{ github.reposiroty }}"
           echo "Brach: ${{ github.ref_name }}"
           echo "Triggered by: ${{ github.actor }}"
