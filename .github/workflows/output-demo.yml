@@ -6,7 +6,7 @@ jobs:
     steps:
       - name: Get Current Date
         id: date-step
-        run: echo "today = $(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
+        run: echo "today=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
 
       - name: Use the Date
         run: echo "Deployment date is ${{ steps.date-step.outputs.today }}"
