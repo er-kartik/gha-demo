@@ -1,0 +1,12 @@
+name: Single Matrix Demo
+on: push
+
+jobs:
+  test-environment:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        environments: [dev, staging, prod]
+    steps:
+      - name: Show Which Ennvironment
+        run: echo "Running tests on the ${{ matrix.environments }} environment"
