@@ -1,0 +1,13 @@
+name: Multi Matrix Demo
+on: push
+
+jobs:
+  test-matrix:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        browser: [chrome, safari, edge]
+        environment: [dev, staging]
+    steps:
+      - name: Show test combination
+        run: echo "Testing on ${{ matrix.browser}} in ${{ matrix.environment }} environment"
